@@ -63,6 +63,10 @@ body {
     background: #0b0d0f; /* Alterar */
 }
 
+.doctor img {
+    width: 30%;
+}
+
 .membros {
     gap: 4rem;
     background: #0b0d0f; /* Alterar */

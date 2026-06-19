@@ -11,7 +11,7 @@ export default function Doctor() {
 
     return (
         <section className="content-section doctor">
-            <img src="/assets/img-1.jpeg" alt="Doctor Image"/>
+            <img src={doctor.img} alt="Doctor Image"/>
             <div className="doctor-description">
                 <h1 className="destaque-label">Neuroonco</h1>
                 <div id='divider-bar'/>

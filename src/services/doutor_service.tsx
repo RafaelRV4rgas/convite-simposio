@@ -13,24 +13,28 @@ class DoutorService {
                 id: 0,
                 nome: 'Renato Carvalho Santos',
                 sexo: 'M',
-                especializacao: 'Neurocirurgia'
+                especializacao: 'Neurocirurgia',
+                img: '/assets/img-ia-m-1.jpeg',
 
             }, {
                 id: 1,
                 nome: 'Felizberta da Cruz Frei',
                 sexo: 'F',
-                especializacao: 'Neurocirurgia'
+                especializacao: 'Neurocirurgia',
+                img: '/assets/img-ia-f-5.jpeg',
 
             }, {
                 id: 2,
                 nome: 'Marina Ruy Barbosa',
                 sexo: 'F',
-                especializacao: 'Neurocirurgia'
+                especializacao: 'Neurocirurgia',
+                img: '/assets/img-ia-f-6.webp',
             }, {
                 id: 3,
                 nome: 'João Kleber Silva',
                 sexo: 'M',
-                especializacao: 'Neurocirurgia'
+                especializacao: 'Neurocirurgia',
+                img: '/assets/img-ia-m-2.jpg',
 
             },
         ];

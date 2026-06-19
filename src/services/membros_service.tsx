@@ -12,22 +12,22 @@ class MembrosService {
             {
                 name: "Carolina Ayumi Kozima",
                 cargo: "Presidente",
-                img: "/assets/img-1.jpeg"
+                img: "/assets/img-ia-f-2.jpeg"
             },
             {
                 name: "Graziela Sogiro",
                 cargo: "Vice Presidente",
-                img: "/assets/img-1.jpeg"
+                img: "/assets/img-ia-f-3.jpeg"
             },
             {
                 name: "Rahianni Sampaio",
                 cargo: "Marketing",
-                img: "/assets/img-1.jpeg"
+                img: "/assets/img-ia-f-1.jpeg"
             },
             {
                 name: "Gabriella Lima Peres",
                 cargo: "Financeiro",
-                img: "/assets/img-1.jpeg"
+                img: "/assets/img-ia-f-4.webp"
             },
         ];
     }

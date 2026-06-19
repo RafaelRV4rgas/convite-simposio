@@ -3,4 +3,5 @@ export default interface DoutorModel {
     nome: string;
     sexo: string;
     especializacao: string;
+    img: string;
 }
