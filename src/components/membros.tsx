@@ -5,7 +5,7 @@ export default function Membros() {
 
     return (
         <section className="content-section membros">
-            <h1>Membros Organizadores</h1>
+            <h1 className="destaque-label">Membros Organizadores</h1>
             <ul>
                 {service.membros.map(membro => (
                     <li key={membro.name}>

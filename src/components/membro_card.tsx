@@ -9,12 +9,10 @@ export default function MembroCard({img, name, cargo}: MembroCardProps) {
         <div className="card-membro">
             <img src={img} alt="Card Image"/>
 
-            <div className="card-content">
-                <div className="tag-label">
-                    <h3>{cargo}</h3>
-                </div>
-                <h3>{name}</h3>
+            <div className="tag-label">
+                <h3>{cargo}</h3>
             </div>
+            <h3>{name}</h3>
         </div>
     )
 }

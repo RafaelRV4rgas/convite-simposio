@@ -1,11 +1,9 @@
 import {service} from "../services/doutor_service.tsx";
 import {service as membrosService} from "../services/membros_service.tsx";
-import {useParams} from "react-router-dom";
+import GetCurrentDoctor from "../services/get_current_doctor.tsx";
 
 export default function Doctor() {
-    const {id} = useParams();
-
-    const doctor = id ? service.getDoutor(Number(id!)) : null;
+    const doctor = GetCurrentDoctor();
 
     if (!doctor) {
         return <></>;
@@ -15,9 +13,9 @@ export default function Doctor() {
         <section className="content-section doctor">
             <img src="/assets/img-1.jpeg" alt="Doctor Image"/>
             <div className="doctor-description">
-                <h1>Neuroonco</h1>
+                <h1 className="destaque-label">Neuroonco</h1>
                 <div id='divider-bar'/>
-                <h3>{service.getDoctorLabel(doctor, true)} {doctor.nome}</h3>
+                <h3 className="destaque-label">{service.getDoctorLabel(doctor, true)} {doctor.nome}</h3>
                 <p>
                     {service.getDoctorLabel(doctor, false)}, sabemos da sua excelente atuação e da
                     dedicação necessária para trilhar a carreira na {doctor.especializacao}, uma especialidade
@@ -32,7 +30,7 @@ export default function Doctor() {
                 </p>
 
                 <div style={{textAlign: "right"}}>
-                    <h3>{membrosService.getPresidente().name}</h3>
+                    <h3 className="destaque-label">{membrosService.getPresidente().name}</h3>
                     <h3>Presidente LANNC</h3>
                 </div>
             </div>

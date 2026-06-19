@@ -17,20 +17,20 @@ class DoutorService {
 
             }, {
                 id: 1,
-                nome: '',
-                sexo: 'm',
-                especializacao: 'Neuro'
+                nome: 'Felizberta da Cruz Frei',
+                sexo: 'F',
+                especializacao: 'Neurocirurgia'
 
             }, {
                 id: 2,
-                nome: '',
-                sexo: 'm',
-                especializacao: 'Neuro'
+                nome: 'Marina Ruy Barbosa',
+                sexo: 'F',
+                especializacao: 'Neurocirurgia'
             }, {
                 id: 3,
-                nome: '',
-                sexo: 'm',
-                especializacao: 'Neuro'
+                nome: 'João Kleber Silva',
+                sexo: 'M',
+                especializacao: 'Neurocirurgia'
 
             },
         ];

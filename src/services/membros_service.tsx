@@ -15,18 +15,18 @@ class MembrosService {
                 img: "/assets/img-1.jpeg"
             },
             {
-                name: "Dr. Renato Santos",
-                cargo: "Presidente",
+                name: "Graziela Sogiro",
+                cargo: "Vice Presidente",
                 img: "/assets/img-1.jpeg"
             },
             {
-                name: "Dr. Renato Santos",
-                cargo: "Presidente",
+                name: "Rahianni Sampaio",
+                cargo: "Marketing",
                 img: "/assets/img-1.jpeg"
             },
             {
-                name: "Dr. Renato Santos",
-                cargo: "Presidente",
+                name: "Gabriella Lima Peres",
+                cargo: "Financeiro",
                 img: "/assets/img-1.jpeg"
             },
         ];

@@ -1,19 +1,28 @@
+import GetCurrentDoctor from "../services/get_current_doctor.tsx";
+import {service} from "../services/doutor_service.tsx";
+
 export default function Convite() {
+    const doctor = GetCurrentDoctor();
+
+    if (doctor === null) return <></>;
+
     return (
-        <section className="content-section convite" id="convite">
-            <h1>Convite Especial</h1>
+        <section className="content-section convite">
+            <h1 className="destaque-label">Convite Especial</h1>
             <div id='divider-bar'/>
             <p>
-                Nós, da Liga de Neurologia e Neurocirurgia do Hospital Santa Rosa (LANNcHSR), temos a
-                honra de convidar nossa grande referência em cirurgia oncológica, Dr. Renato Santos, para
-                participar como palestrante do “1º Symposium Online das Grandes Áreas e Subespecialidades
-                da Neurocirurgia: um guia aos aspirantes”
-                .
-                O simpósio, realizado com o apoio da Academia Brasileira de Neurocirurgia, foi idealizado
-                para acadêmicos, internos e médicos interessados em conhecer mais sobre as áreas de
-                atuação, rotina e perspectivas da neurocirurgia.
+                Nós, da <strong>Liga de Neurologia e Neurocirurgia do Hospital Santa Rosa (<em>LANNcHSR</em>)</strong>,
+                temos a
+                honra de convidar nossa grande referência em cirurgia
+                oncológica, <strong>{service.getDoctorLabel(doctor!, true)} {doctor!.nome}</strong>, para
+                participar como palestrante do <strong>“1º Symposium Online das Grandes Áreas e Subespecialidades
+                da Neurocirurgia: um guia aos aspirantes”</strong>.
+                <br/>
+                <br/>
+                O simpósio será realizado com o apoio da <strong>Acadêmia Brasileira de Neurocirurgia</strong> e tem
+                como idealização apoiar os acadêmicos, internos e médicos interessados em conhecer mais sobre as áreas
+                de atuações, rotina e perspectivas da neurocirurgia.
             </p>
-            {/*    todo: Dr. Renato Santos*/}
         </section>
     );
 }
