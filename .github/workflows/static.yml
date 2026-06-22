@@ -31,13 +31,34 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # --- PASSOS ADICIONADOS PARA O REACT ---
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # Instala as dependências do package.json
+      - name: Install dependencies
+        run: npm ci
+
+      # Executa a build para criar a pasta 'dist'
+      - name: Build project
+        run: npm run build
+      # ----------------------------------------
+
+      # O Setup Pages original do seu arquivo
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      # Upload do artefato (agora a pasta './dist' vai existir!)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: './dist'
+          path: './dist' # Altere para './build' se você usar Create React App em vez de Vite
+
+      # Deploy final
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
