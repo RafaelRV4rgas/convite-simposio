@@ -4,8 +4,6 @@ import {useEffect, useRef} from "react";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
-import brainVideo from '../../public/assets/Brain_transformation.mp4';
-
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroVideo() {
@@ -73,7 +71,7 @@ export default function HeroVideo() {
                 preload="auto"
             >
                 <source
-                    src={brainVideo}
+                    src={`${import.meta.env.BASE_URL}assets/Brain_transformation.mp4`}
                     type="video/mp4"
                 />
             </video>

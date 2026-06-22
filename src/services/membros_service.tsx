@@ -1,10 +1,5 @@
 import type MembroModel from "../domain/membro_model.tsx";
 
-import img1 from '../../public/assets/img-ia-f-2.jpeg';
-import img2 from '../../public/assets/img-ia-f-3.jpeg';
-import img3 from '../../public/assets/img-ia-f-1.jpeg';
-import img4 from '../../public/assets/img-ia-f-4.webp';
-
 class MembrosService {
     membros: MembroModel[];
 
@@ -17,22 +12,22 @@ class MembrosService {
             {
                 name: "Carolina Ayumi Kozima",
                 cargo: "Presidente",
-                img: img1
+                img: `${import.meta.env.BASE_URL}assets/img-ia-f-2.jpeg`
             },
             {
                 name: "Graziela Sogiro",
                 cargo: "Vice Presidente",
-                img: img2
+                img: `${import.meta.env.BASE_URL}assets/img-ia-f-3.jpeg`
             },
             {
                 name: "Rahianni Sampaio",
                 cargo: "Marketing",
-                img: img3
+                img: `${import.meta.env.BASE_URL}assets/img-ia-f-1.jpeg`
             },
             {
                 name: "Gabriella Lima Peres",
                 cargo: "Financeiro",
-                img: img4
+                img: `${import.meta.env.BASE_URL}assets/img-ia-f-4.webp`
             },
         ];
     }
