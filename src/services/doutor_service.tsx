@@ -2,10 +2,12 @@ import type DoutorModel from "../domain/doutor_model.tsx";
 
 class DoutorService {
     doutors: DoutorModel[];
+    currentDoctor: DoutorModel | undefined;
 
     constructor() {
         this.doutors = this.getDoutores();
     }
+
 
     getDoutores(): DoutorModel[] {
         return [
@@ -40,8 +42,12 @@ class DoutorService {
         ];
     }
 
-    getDoutor(id: number): DoutorModel {
-        return this.doutors.find(doutor => doutor.id === id) as DoutorModel;
+    setCurrentDoctor(id: number) {
+        this.currentDoctor = this.doutors.find(doutor => doutor.id === id);
+    }
+
+    getCurrentDoctor(): DoutorModel | undefined {
+        return this.currentDoctor;
     }
 
     getDoctorLabel(doctor: DoutorModel, isAbreviado: boolean): string {

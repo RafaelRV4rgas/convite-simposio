@@ -1,13 +1,10 @@
 import {service} from "../services/doutor_service.tsx";
 import {service as membrosService} from "../services/membros_service.tsx";
-import GetCurrentDoctor from "../services/get_current_doctor.tsx";
 
 export default function Doctor() {
-    const doctor = GetCurrentDoctor();
+    const doctor = service.getCurrentDoctor();
 
-    if (!doctor) {
-        return <></>;
-    }
+    if (!doctor) return <></>;
 
     return (
         <section className="content-section doctor">

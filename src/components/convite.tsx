@@ -1,10 +1,9 @@
-import GetCurrentDoctor from "../services/get_current_doctor.tsx";
 import {service} from "../services/doutor_service.tsx";
 
 export default function Convite() {
-    const doctor = GetCurrentDoctor();
+    const doctor = service.getCurrentDoctor();
 
-    if (doctor === null) return <></>;
+    if (!doctor) return <></>;
 
     return (
         <section className="content-section convite">
