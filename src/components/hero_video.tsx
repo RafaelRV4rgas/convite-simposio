@@ -66,7 +66,7 @@ export default function HeroVideo() {
         };
 
         video.addEventListener(
-            "loadedmetadata",
+            "canplay",
             handleLoaded
         );
 
@@ -91,16 +91,37 @@ export default function HeroVideo() {
                 muted
                 playsInline
                 preload="auto"
+                disablePictureInPicture
+                disableRemotePlayback
                 // style={{
                 //     width: "300px",
                 //     height: "auto"
                 //}}
             >
                 <source
-                    src={`${import.meta.env.BASE_URL}assets/Brain_transformation.mp4`}
+                    src={`${import.meta.env.BASE_URL}assets/Brain_transformation_scroll.mp4`}
                     type="video/mp4"
                 />
             </video>
         </section>
     );
 }
+
+// ffmpeg -i Brain_transformation.mp4 \
+// -c:v libx264 \
+// -pix_fmt yuv420p \
+// -g 30 \
+// -keyint_min 30 \
+// -movflags +faststart \
+// -c:a aac \
+// Brain_transformation_scroll.mp4
+
+// ffmpeg -i Brain_transformation.mp4 \
+// -an \
+// -c:v libx264 \
+// -pix_fmt yuv420p \
+// -crf 18 \
+// -g 15 \
+// -keyint_min 15 \
+// -movflags +faststart \
+// Brain_transformation_scroll.mp4
