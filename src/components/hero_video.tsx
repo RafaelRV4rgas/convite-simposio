@@ -15,6 +15,22 @@ export default function HeroVideo() {
 
         if (!video) return;
 
+        video.addEventListener("loadedmetadata", () => {
+            console.log("metadata", video.duration);
+        });
+
+        video.addEventListener("canplay", () => {
+            console.log("canplay");
+        });
+
+        video.addEventListener("canplaythrough", () => {
+            console.log("canplaythrough");
+        });
+
+        video.addEventListener("error", (e) => {
+            console.log("video error", e);
+        });
+
         const handleLoaded = () => {
 
             const tl = gsap.timeline({
@@ -54,6 +70,11 @@ export default function HeroVideo() {
             handleLoaded
         );
 
+        // Safari/iOS may not start buffering aggressively when the
+        // video is only scrubbed through currentTime.
+        // Force loading so canplay/canplaythrough are reached.
+        video.load();
+
         return () => {
             video.removeEventListener(
                 "loadedmetadata",
@@ -66,9 +87,14 @@ export default function HeroVideo() {
         <section ref={heroRef} className="video-scroll-container">
             <video
                 ref={videoRef}
+                // controls
                 muted
                 playsInline
                 preload="auto"
+                // style={{
+                //     width: "300px",
+                //     height: "auto"
+                //}}
             >
                 <source
                     src={`${import.meta.env.BASE_URL}assets/Brain_transformation.mp4`}
