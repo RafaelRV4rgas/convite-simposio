@@ -99,29 +99,10 @@ export default function HeroVideo() {
                 //}}
             >
                 <source
-                    src={`${import.meta.env.BASE_URL}assets/video_teste.mp4`}
+                    src={`${import.meta.env.BASE_URL}assets/tab.mp4`}
                     type="video/mp4"
                 />
             </video>
         </section>
     );
 }
-
-// ffmpeg -i Brain_transformation.mp4 \
-// -c:v libx264 \
-// -pix_fmt yuv420p \
-// -g 30 \
-// -keyint_min 30 \
-// -movflags +faststart \
-// -c:a aac \
-// Brain_transformation_scroll.mp4
-
-// ffmpeg -i Brain_transformation.mp4 \
-// -an \
-// -c:v libx264 \
-// -pix_fmt yuv420p \
-// -crf 18 \
-// -g 15 \
-// -keyint_min 15 \
-// -movflags +faststart \
-// Brain_transformation_scroll.mp4
