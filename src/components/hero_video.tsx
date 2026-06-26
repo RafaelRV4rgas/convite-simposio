@@ -7,68 +7,61 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroVideo() {
-    const videoRef = useRef<HTMLVideoElement>(null);
     const heroRef = useRef<HTMLElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
         const video = videoRef.current;
+        const canvas = canvasRef.current;
 
-        if (!video) return;
+        if (!video || !canvas) return;
 
-        video.addEventListener("loadedmetadata", () => {
-            console.log("metadata", video.duration);
-        });
+        const ctx = canvas.getContext("2d");
 
-        video.addEventListener("canplay", () => {
-            console.log("canplay");
-        });
+        if (!ctx) return;
 
-        video.addEventListener("canplaythrough", () => {
-            console.log("canplaythrough");
-        });
+        let animationFrame: number;
 
-        video.addEventListener("error", (e) => {
-            console.log("video error", e);
-        });
+        const render = () => {
+            if (video.readyState >= 2) {
+                if (
+                    canvas.width !== video.videoWidth ||
+                    canvas.height !== video.videoHeight
+                ) {
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                }
 
-        const handleLoaded = () => {
+                ctx.drawImage(
+                    video,
+                    0,
+                    0,
+                    canvas.width,
+                    canvas.height
+                );
+            }
 
-            const tl = gsap.timeline({
+            animationFrame = requestAnimationFrame(render);
+        };
+
+        const onCanPlay = () => {
+            render();
+
+            gsap.timeline({
                 scrollTrigger: {
                     trigger: heroRef.current,
                     start: "top top",
                     end: "bottom bottom",
-                    scrub: true,
+                    scrub: 1,
                 },
-            });
-
-            tl.to(video, {
+            }).to(video, {
                 currentTime: video.duration,
                 ease: "none",
             });
-
-            // tl.from(
-            //     ".title",
-            //     {
-            //         opacity: 0,
-            //         y: 50,
-            //     },
-            //     0.8
-            // );
-            //
-            // tl.from(
-            //     ".convite",
-            //     {
-            //         opacity: 0,
-            //     },
-            //     0.9
-            // );
         };
 
-        video.addEventListener(
-            "canplay",
-            handleLoaded
-        );
+        video.addEventListener("canplay", onCanPlay);
 
         // Safari/iOS may not start buffering aggressively when the
         // video is only scrubbed through currentTime.
@@ -76,33 +69,32 @@ export default function HeroVideo() {
         video.load();
 
         return () => {
-            video.removeEventListener(
-                "loadedmetadata",
-                handleLoaded
-            );
+            cancelAnimationFrame(animationFrame);
+            video.removeEventListener("canplay", onCanPlay);
+            ScrollTrigger.getAll().forEach((t) => t.kill());
         };
     }, []);
 
     return (
-        <section ref={heroRef} className="video-scroll-container">
+        <section
+            ref={heroRef}
+            className="video-scroll-container"
+        >
             <video
                 ref={videoRef}
-                // controls
                 muted
                 playsInline
-                preload="auto"
-                disablePictureInPicture
-                disableRemotePlayback
-                // style={{
-                //     width: "300px",
-                //     height: "auto"
-                //}}
+                preload="none"
             >
                 <source
-                    src={`${import.meta.env.BASE_URL}assets/tab.mp4`}
+                    src={`${import.meta.env.BASE_URL}assets/Brain_transformation_scroll.mp4`}
                     type="video/mp4"
                 />
             </video>
+
+            <canvas
+                ref={canvasRef}
+            />
         </section>
     );
 }
